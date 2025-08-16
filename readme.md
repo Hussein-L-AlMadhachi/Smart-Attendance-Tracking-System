@@ -10,7 +10,7 @@ Designed for schools, colleges, and training centers, SATS ensures fast, touchle
 
 ## Credits
 
-Special thanks to Dr. Fatima Alzahraa Shamel Asi Rubaie (د. فاطمة الزهراء شامل عاصي ربيعي) for supervising, planning and managing the project I coded.
+Special thanks to Dr. Fatima Alzahraa Shamel Asi Rubaie (د. فاطمة الزهراء شامل عاصي ربيعي) for supervising, planning and managing this project that I coded.
 
 ## 🔧 Key Features
 
