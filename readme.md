@@ -21,5 +21,4 @@ Special thanks to Dr. Fatima Alzahraa Shamel Asi Rubaie (د. فاطمة الزه
 
 ✅ **Real-Time Attendance Logging**
 
-- Automatically logs attendance by class, period, and date.  
-- Instant sync with the central SIS database.
+- exports attenance in CSV
