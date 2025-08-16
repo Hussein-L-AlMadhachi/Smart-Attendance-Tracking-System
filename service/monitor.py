@@ -56,7 +56,7 @@ def monitor_faces():
             now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
             if name != "Unknown" and name not in marked_today:
                 with open(attendance_file, 'a') as f:
-                    f.write(f"\n\"{name}\",\"{now}\"\n")
+                    f.write(f"\n\"{name}\",\"{now}\"")
                 marked_today.add(name)
                 print(f"Attendance marked: {name} at {now}")
 
@@ -84,7 +84,7 @@ def monitor_faces():
 
 
 
-def monitor_faces_headless():
+def monitor_faces_headless( callback ):
     # Load known face encodings
     with open("face_encodings.pkl", "rb") as f:
         known_encodings, known_names = pickle.load(f)
@@ -131,7 +131,7 @@ def monitor_faces_headless():
                 with open(attendance_file, 'a') as f:
                     f.write(f"\n\"{name}\",\"{now}\"")
                 marked_today.add(name)
-                print(f"Attendance marked: {name} at {now}")
+                callback( name )
 
             # Draw box and label on face
             top, right, bottom, left = face_location
@@ -141,11 +141,6 @@ def monitor_faces_headless():
             left *= 4
 
             color = (0, 255, 0) if name != "Unknown" else (0, 0, 255)
-            #cv2.rectangle(frame, (left, top), (right, bottom), color, 2)
-            #cv2.putText(frame, name, (left, top - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, color, 2)
-
-        # Display the video
-        #cv2.imshow("Attendance System - Press 'q' to quit", frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
