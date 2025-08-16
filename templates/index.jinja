@@ -1,0 +1,179 @@
+<!-- templates/control_panel.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Face Attendance Control Panel</title>
+    <style>
+        :root {
+            --primary: #4a6fa5;
+            --primary-hover: #3a5a8c;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #adb5bd;
+            --border: #dee2e6;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        header h1 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 2rem;
+        }
+        header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 25px;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 1.5rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            flex: 1;
+            min-width: 200px;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            color: white;
+            background-color: var(--primary);
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+        .btn:active {
+            transform: scale(0.98);
+        }
+        .list-section {
+            margin-top: 20px;
+        }
+        .list-section h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+        .face-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+            list-style: none;
+            padding: 0;
+        }
+        .face-item {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            background: var(--light);
+            font-size: 0.95rem;
+            color: var(--dark);
+        }
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>🎯 Face Attendance Panel</h1>
+            <p>Upload faces and manage your recognition system</p>
+        </header>
+
+        <!-- Upload Card -->
+        <div class="card">
+            <h2>📤 Upload New Face</h2>
+            <p>Add a new person to the attendance system by uploading their photo.</p>
+            <div class="btn-group">
+                <a href="upload" class="btn">Add New Face</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📋 list faces</h2>
+            <p>list stored faces.</p>
+            <div class="btn-group">
+                <a href="list" class="btn">List faces</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🔍 scan faces for attendance</h2>
+            <p>take student attendance for the day.</p>
+            <div class="btn-group">
+                <a href="monitor" class="btn">scan faces</a>
+            </div>
+        </div>
+
+        <!-- List Card 
+        <div class="card">
+            <h2>📋 Known Faces</h2>
+            <p>Currently registered individuals in the system.</p>
+            <div class="list-section">
+                {% if faces %}
+                    <ul class="face-list">
+                        {% for face in faces %}
+                            <li class="face-item">{{ face.name }}<br><small>{{ face.ext|upper }}</small></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p><em>No faces uploaded yet. Start by adding one!</em></p>
+                {% endif %}
+            </div>
+        </div>
+        -->
+        
+        <footer>
+            &copy; Face Attendance System
+        </footer>
+
+    </div>
+
+</body>
+</html>
+

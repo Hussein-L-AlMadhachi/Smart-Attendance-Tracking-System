@@ -1,0 +1,7 @@
+known_faces/
+pics/
+config.json
+*.csv
+*.pkl
+**/__pycache__/
+attendance/

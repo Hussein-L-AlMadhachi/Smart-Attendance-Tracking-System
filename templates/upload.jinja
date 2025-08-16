@@ -1,0 +1,66 @@
+<!-- templates/upload.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Face Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 { text-align: center; color: #333; }
+        label { font-weight: bold; margin-top: 10px; display: block; }
+        input[type="text"], input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        .message { margin-top: 20px; padding: 10px; border-radius: 4px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 Upload Face for Attendance</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <label for="name">Person's Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="photo">Face Photo (JPG/PNG):</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required>
+
+            <input type="submit" value="Upload Face">
+        </form>
+
+        {% if message %}
+        <div class="message {{ msg_type }}">
+            {{ message }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
